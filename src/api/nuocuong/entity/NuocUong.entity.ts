@@ -1,15 +1,15 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
 
 @Entity()
-export class MANU {
+export class NuocUong {
   @PrimaryGeneratedColumn()
-  public maMonAnNuocUong: number;
+  public maNuocUong: number;
 
   @Column({ type: 'real'})
   public DonGia: number;
 
   @Column({ type: 'varchar', length: 120 })
-  public TenMonAn: string;
+  public TenNuocUong: string;
 
   @Column({ type: 'varchar', length: 120 })
   public MoTa: string;
@@ -17,11 +17,17 @@ export class MANU {
   @Column({ type: 'varchar', length: 30 })
   public TrangThai: string;
 
-  @Column({ type: 'varchar', length: 30 })
+  @Column({ type: 'varchar', length: 225 })
   public HinhAnh: string;
-  
+
   @Column({ type: 'int'})
-  public maLoaiMANU: number;
+  public soLuongTon: number;
+  
+  @Column({ type: 'varchar'})
+  public donViTinh: string;
+
+  @Column({ type: 'int'})
+  public maLoaiNuocUong: number;
 
 
   /*

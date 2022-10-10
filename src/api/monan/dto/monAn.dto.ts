@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateMANUDto {
+export class CreateMonAnDto {
   @ApiProperty({
   type: Number,
   description: 'Thuộc tính phải có',
@@ -32,12 +32,12 @@ export class CreateMANUDto {
     public HinhAnh: string;
 
   @ApiProperty({
-    type: Number,
+    type: String,
     description: 'Thuộc tính phải có',
     })
-    public maLoaiMANU: number;
+    public maLoaiMonAn: number;
 
 }
-export class UpdateMANUDto {
+export class UpdateMonAnDto {
 
 }
