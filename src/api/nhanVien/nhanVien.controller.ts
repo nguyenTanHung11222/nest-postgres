@@ -4,8 +4,8 @@ import JwtAuthGuard from 'src/auth/jwt-auth.guard';
 import { CreateUserDto, LoginUserDto, UpdateUserDto } from './dto/nhanVien.dto';
 import { User } from './entity/nhanVien.entity';
 import { UserService } from './nhanVien.service';
-@ApiTags('User')
-@Controller('user')
+@ApiTags('NhanVien')
+@Controller('nhanvien')
 export class UserController {
   @Inject(UserService)
   private readonly service: UserService;
