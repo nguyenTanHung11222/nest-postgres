@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+import { HoaDon } from 'src/api/hoa-don/entities/hoa-don.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -32,10 +40,10 @@ export class User {
   @Column({ type: 'varchar', length: 30 })
   public ChucVU: string;
 
-  @Column({ type: 'boolean'})
+  @Column({ type: 'boolean' })
   public isDeleted: boolean;
-
-
+  @OneToMany(() => HoaDon, (hd) => hd.nguoiTaoHD)
+  dsHoaDon: HoaDon[];
 
   /*
    * Create and Update Date Columns
@@ -46,5 +54,4 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp' })
   public updatedAt!: Date;
-
 }

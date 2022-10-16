@@ -1,3 +1,4 @@
+import { DonDatBan } from 'src/api/don-dat-ban/entities/don-dat-ban.entity';
 import { KhuVuc } from 'src/api/khuvuc/entity/khuvuc.entity';
 import {
   Column,
@@ -15,11 +16,14 @@ export class Ban {
   tenBan: string;
 
   @Column()
-  soLuongToiDa:number;
+  soLuongToiDa: number;
 
   @Column()
-  trangThai:string;
+  trangThai: string;
 
   @ManyToOne(() => KhuVuc, (khuVuc) => khuVuc.ban)
   khuVuc: KhuVuc;
+
+  @OneToMany(() => DonDatBan, (ddb) => ddb.ban)
+  donDatBan: DonDatBan;
 }

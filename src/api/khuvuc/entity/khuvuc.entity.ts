@@ -4,7 +4,7 @@ import { Ban } from 'src/api/ban/entity/ban.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class KhuVuc{
+export class KhuVuc {
   @PrimaryGeneratedColumn()
   maKhuVuc: number;
   @Column()
@@ -20,5 +20,4 @@ export class KhuVuc{
   })
   @OneToMany(() => Ban, (Ban) => Ban.khuVuc)
   ban: Ban[];
-
 }

@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+import { DonDatBan } from 'src/api/don-dat-ban/entities/don-dat-ban.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class KhachHang {
@@ -11,9 +19,10 @@ export class KhachHang {
   @Column({ type: 'varchar', length: 120 })
   public email: string;
 
-//   @Column({ type: 'varchar', length: 30 })
-//   public MatKhau: string;
-
+  //   @Column({ type: 'varchar', length: 30 })
+  //   public MatKhau: string;
+  @OneToMany(() => DonDatBan, (ddb) => ddb.khachHang)
+  donDatBan: DonDatBan[];
   @Column({ type: 'varchar', length: 30 })
   public CMT: string;
 
@@ -29,7 +38,7 @@ export class KhachHang {
   @Column()
   public NgaySinh: Date;
 
-  @Column({ type: 'boolean'})
+  @Column({ type: 'boolean' })
   public isDeleted: boolean;
 
   @CreateDateColumn({ type: 'timestamp' })
@@ -37,5 +46,4 @@ export class KhachHang {
 
   @UpdateDateColumn({ type: 'timestamp' })
   public updatedAt!: Date;
-
 }

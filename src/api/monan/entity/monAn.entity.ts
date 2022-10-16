@@ -1,11 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class MonAn {
   @PrimaryGeneratedColumn()
   public maMonAn: number;
 
-  @Column({ type: 'real'})
+  @Column({ type: 'real' })
   public DonGia: number;
 
   @Column({ type: 'varchar', length: 120 })
@@ -19,10 +25,9 @@ export class MonAn {
 
   @Column({ type: 'varchar', length: 30 })
   public HinhAnh: string;
-  
-  @Column({ type: 'varchar'})
-  public maLoaiMonAn: number;
 
+  @Column({ type: 'varchar' })
+  public maLoaiMonAn: number;
 
   /*
    * Create and Update Date Columns
@@ -33,5 +38,4 @@ export class MonAn {
 
   @UpdateDateColumn({ type: 'timestamp' })
   public updatedAt!: Date;
-
 }
