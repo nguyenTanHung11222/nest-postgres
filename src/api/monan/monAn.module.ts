@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MonAnService } from './monAn.service';
 import { MonAnController } from './monAn.controller';
-import { MonAn } from './entity/monAn.entity';
+import { MonAn } from './entities/monAn.entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   providers: [MonAnService],

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { NuocUongService } from './NuocUong.service';
 import { NuocUongController } from './NuocUong.controller';
-import { NuocUong } from './entity/NuocUong.entity';
+import { NuocUong } from './entities/NuocUong.entities';
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   providers: [NuocUongService],

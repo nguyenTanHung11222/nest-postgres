@@ -1,5 +1,5 @@
 import { ChiTietHoaDon } from "src/api/chi-tiet-hoa-don/entities/chi-tiet-hoa-don.entity";
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 
 @Entity()
 export class ThucDon {
@@ -16,7 +16,7 @@ export class ThucDon {
     public DonGia: number;
   
     @Column({ type: 'varchar', length: 120 })
-    public TenNuocUong: string;
+    public TenThucDon: string;
   
     @Column({ type: 'varchar', length: 120 })
     public MoTa: string;
@@ -29,6 +29,9 @@ export class ThucDon {
   
     @Column({ type: 'int'})
     public soLuongTon: number;
+
+    @Column({ type: 'varchar', length: 225 })
+    public maLoaiSanPham: string;
 
     @CreateDateColumn({ type: 'timestamp' })
     public createdAt!: Date;

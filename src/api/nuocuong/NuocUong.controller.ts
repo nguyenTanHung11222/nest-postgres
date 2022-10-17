@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Inject, Param, ParseIntPipe, Post, Put, 
 import { ApiCreatedResponse, ApiForbiddenResponse, ApiTags, ApiUnprocessableEntityResponse } from '@nestjs/swagger';
 
 import { CreateNuocUongDto, UpdateNuocUongDto } from './dto/NuocUong.dto';
-import { NuocUong } from './entity/NuocUong.entity';
+import { NuocUong } from './entities/NuocUong.entities';
 import { NuocUongService } from './NuocUong.service';
 
 @ApiTags('NuocUong')

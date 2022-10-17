@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Inject, Param, ParseIntPipe, Post, Put, 
 import { ApiCreatedResponse, ApiForbiddenResponse, ApiTags, ApiUnprocessableEntityResponse } from '@nestjs/swagger';
 
 import { CreateMonAnDto, UpdateMonAnDto } from './dto/monAn.dto';
-import { MonAn } from './entity/monAn.entity';
+import { MonAn } from './entities/monAn.entities';
 import { MonAnService } from './monAn.service';
 
 @ApiTags('MonAn')

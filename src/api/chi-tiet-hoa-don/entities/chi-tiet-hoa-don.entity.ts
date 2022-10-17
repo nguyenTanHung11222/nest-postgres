@@ -1,6 +1,6 @@
 import { HoaDon } from 'src/api/hoa-don/entities/hoa-don.entity';
-import { MonAn } from 'src/api/monan/entity/monAn.entity';
-import { NuocUong } from 'src/api/nuocuong/entity/NuocUong.entity';
+import { MonAn } from 'src/api/monan/entities/monAn.entities';
+import { NuocUong } from 'src/api/nuocuong/entities/NuocUong.entities';
 import { ThucDon } from 'src/common/thucdon/thucdon.entity';
 import {
   Column,
@@ -20,7 +20,7 @@ export class ChiTietHoaDon {
   @ManyToOne(() => HoaDon, (hd) => hd.chiTietHoaDons)
   hoaDon: HoaDon;
 
-  @ManyToOne(() => ThucDon, (td) => td.chiTietHoaDons)
+  @ManyToOne(() => (ThucDon), (td) => td.chiTietHoaDons)
   thucDon: ThucDon;
 
   @Column()

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CreateMonAnDto, UpdateMonAnDto } from './dto/monAn.dto';
-import { MonAn } from './entity/monAn.entity';
+import { MonAn } from './entities/monAn.entities';
 @Injectable()
 export class MonAnService {
     [x: string]: any;
@@ -11,7 +11,7 @@ export class MonAnService {
     private readonly repository: Repository<MonAn>;
   
     public getMonAn(maMonAn: number): Promise<MonAn> {
-        let MonAn = this.repository.findOne({where:{maMonAn:maMonAn}});
+        let MonAn = this.repository.findOne({where:{maThucDon:maMonAn}});
         return MonAn;
       }
     
@@ -33,13 +33,13 @@ export class MonAnService {
       }
       async updateMonAn(maMonAn: number, post: UpdateMonAnDto) {
         await this.repository.update(maMonAn, post);
-        const updateMonAn = await this.repository.findOne({where : {maMonAn}});
+        const updateMonAn = await this.repository.findOne({where : {maThucDon:maMonAn}});
         if (updateMonAn) {
           return updateMonAn;
         }
       }
-      async getByMaLoai(maLoaiMonAn: number) {
-        const MonAn = await this.repository.findOne({where : {maLoaiMonAn}});
+      async getByMaLoai(maLoaiMonAn: string) {
+        const MonAn = await this.repository.findOne({where : {maLoaiSanPham:maLoaiMonAn}});
         if (MonAn) {
           return MonAn;
         }

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CreateNuocUongDto, UpdateNuocUongDto } from './dto/NuocUong.dto';
-import { NuocUong } from './entity/NuocUong.entity';
+import { NuocUong } from './entities/NuocUong.entities';
 @Injectable()
 export class NuocUongService {
     [x: string]: any;
@@ -11,7 +11,7 @@ export class NuocUongService {
     private readonly repository: Repository<NuocUong>;
   
     public getNuocUong(maNuocUong: number): Promise<NuocUong> {
-        let NuocUong = this.repository.findOne({where:{maNuocUong}});
+        let NuocUong = this.repository.findOne({where:{maThucDon:maNuocUong}});
         return NuocUong;
       }
     
@@ -33,13 +33,13 @@ export class NuocUongService {
       }
       async updateNuocUong(maNuocUong: number, post: UpdateNuocUongDto) {
         await this.repository.update(maNuocUong, post);
-        const updateNuocUong = await this.repository.findOne({where : {maNuocUong}});
+        const updateNuocUong = await this.repository.findOne({where : {maThucDon:maNuocUong}});
         if (updateNuocUong) {
           return updateNuocUong;
         }
       }
-      async getByMaLoai(maLoaiNuocUong: number) {
-        const NuocUong = await this.repository.findOne({where : {maLoaiNuocUong}});
+      async getByMaLoai(maLoaiNuocUong: string) {
+        const NuocUong = await this.repository.findOne({where : {maLoaiSanPham:maLoaiNuocUong}});
         if (NuocUong) {
           return NuocUong;
         }
