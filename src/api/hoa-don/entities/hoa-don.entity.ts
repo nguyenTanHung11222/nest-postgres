@@ -26,7 +26,7 @@ export class HoaDon {
   donDatBan: DonDatBan;
 
   @OneToMany(() => ChiTietHoaDon, (cthd) => cthd.hoaDon)
-  dSChiTietHoadon: ChiTietHoaDon[];
+  chiTietHoaDons: ChiTietHoaDon[];
   @ManyToOne(() => User, (cthd) => cthd.dsHoaDon)
   nguoiTaoHD: ChiTietHoaDon[];
 

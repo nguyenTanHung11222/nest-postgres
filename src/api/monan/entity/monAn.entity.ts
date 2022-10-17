@@ -1,3 +1,4 @@
+import { ThucDon } from 'src/common/thucdon/thucdon.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,25 +8,8 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class MonAn {
-  @PrimaryGeneratedColumn()
-  public maMonAn: number;
-
-  @Column({ type: 'real' })
-  public DonGia: number;
-
-  @Column({ type: 'varchar', length: 120 })
-  public TenMonAn: string;
-
-  @Column({ type: 'varchar', length: 120 })
-  public MoTa: string;
-
-  @Column({ type: 'varchar', length: 30 })
-  public TrangThai: string;
-
-  @Column({ type: 'varchar', length: 30 })
-  public HinhAnh: string;
-
+export class MonAn extends ThucDon {
+  
   @Column({ type: 'varchar' })
   public maLoaiMonAn: number;
 
